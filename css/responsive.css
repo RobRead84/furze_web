@@ -1,0 +1,274 @@
+/* ============================================
+   Firehills Landing Page - Responsive Styles
+   Mobile-first approach with breakpoints at 768px, 1024px, 1440px
+   ============================================ */
+
+/* ============================================
+   Base Mobile Styles (375px - 767px)
+   Already defined in main styles.css
+   ============================================ */
+
+/* ============================================
+   Tablet Styles (768px - 1023px)
+   ============================================ */
+
+@media (min-width: 768px) {
+    /* Hero Section - No padding needed with Grid layout */
+
+    .f-icon {
+        width: 900px;
+        height: 900px;
+    }
+
+    /* Coming Soon Text */
+    .coming-soon-text {
+        font-size: 5rem;
+    }
+
+    .tagline {
+        font-size: 1.75rem;
+    }
+
+    /* Signup Section */
+    .signup-heading {
+        font-size: 2rem;
+    }
+
+    .signup-description {
+        font-size: 1.25rem;
+    }
+}
+
+/* ============================================
+   Desktop Styles (1024px - 1439px)
+   ============================================ */
+
+@media (min-width: 1024px) {
+    /* Hero Section */
+    .hero-container {
+        gap: 0.25rem;
+    }
+
+    .f-icon {
+        width: 1000px;
+        height: 1000px;
+    }
+
+    /* Coming Soon Text */
+    .coming-soon-text {
+        font-size: 5.5rem;
+    }
+
+    .tagline {
+        font-size: 2rem;
+    }
+
+    /* Signup Section */
+    .signup-section {
+        max-width: 700px;
+    }
+
+    .email-input {
+        padding: 1.25rem 2rem;
+        font-size: 1.125rem;
+    }
+
+    .submit-btn {
+        padding: 1.25rem 3rem;
+        font-size: 1.125rem;
+    }
+
+    /* Social Links */
+    .social-link {
+        width: 56px;
+        height: 56px;
+    }
+
+    .social-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* ============================================
+   Large Desktop Styles (1440px+)
+   ============================================ */
+
+@media (min-width: 1440px) {
+    /* Hero Section */
+    .f-icon {
+        width: 1100px;
+        height: 1100px;
+    }
+
+    /* Coming Soon Text */
+    .coming-soon-text {
+        font-size: 6rem;
+    }
+
+    .tagline {
+        font-size: 2.25rem;
+    }
+}
+
+/* ============================================
+   Mobile-Specific Styles (max-width: 767px)
+   ============================================ */
+
+@media (max-width: 767px) {
+    /* Hero Section - No padding needed with Grid layout */
+
+    .hero-container {
+        gap: 0.25rem;
+    }
+
+    .f-icon {
+        width: 560px;
+        height: 560px;
+    }
+
+    /* Coming Soon Text */
+    .coming-soon-text {
+        font-size: 2.5rem;
+    }
+
+    .tagline {
+        font-size: 1.125rem;
+    }
+
+    /* Signup Section */
+    .signup-section {
+        margin-top: var(--spacing-sm);
+    }
+
+    .signup-heading {
+        font-size: 1.5rem;
+    }
+
+    .signup-description {
+        font-size: 1rem;
+    }
+
+    /* Form - Stack on very small screens */
+    .form-group {
+        flex-direction: column;
+    }
+
+    .email-input {
+        padding: 0.875rem 1.25rem;
+        font-size: 0.9375rem;
+    }
+
+    .submit-btn {
+        padding: 0.875rem 2rem;
+        width: 100%;
+    }
+
+    /* Social Links */
+    .social-link {
+        width: 44px;
+        height: 44px;
+    }
+
+    .social-icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: var(--spacing-sm);
+    }
+
+    .copyright {
+        font-size: 0.75rem;
+    }
+}
+
+/* ============================================
+   Small Mobile (max-width: 480px)
+   ============================================ */
+
+@media (max-width: 480px) {
+    .f-icon {
+        width: 220px;
+        height: 220px;
+    }
+
+    .coming-soon-text {
+        font-size: 2.5rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .signup-heading {
+        font-size: 1.25rem;
+    }
+
+    .signup-description {
+        font-size: 0.9375rem;
+    }
+}
+
+/* ============================================
+   Extra Large Screens (1920px+)
+   ============================================ */
+
+@media (min-width: 1920px) {
+    .nav-container,
+    .hero-container,
+    .footer-container {
+        max-width: 1920px;
+    }
+}
+
+/* ============================================
+   Landscape Mobile Orientation
+   ============================================ */
+
+@media (max-width: 767px) and (orientation: landscape) {
+    .hero-section {
+        min-height: auto;
+    }
+
+    .f-icon {
+        width: 200px;
+        height: 200px;
+    }
+
+    .coming-soon-text {
+        font-size: 2.5rem;
+    }
+
+    .hero-container {
+        gap: var(--spacing-sm);
+    }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+
+@media print {
+    .nav-header,
+    .signup-section,
+    .social-links,
+    .footer {
+        display: none;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .coming-soon-text {
+        color: black;
+    }
+
+    .tagline {
+        color: #171d1a;
+    }
+}
