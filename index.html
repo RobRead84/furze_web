@@ -62,22 +62,8 @@
                     <h2 class="signup-heading">Stay Updated</h2>
                     <p class="signup-description">Be the first to know when we launch</p>
 
-                    <form class="signup-form" id="emailForm">
-                        <div class="form-group">
-                            <input
-                                type="email"
-                                id="emailInput"
-                                class="email-input"
-                                placeholder="Enter your email for updates"
-                                required
-                                aria-label="Email address"
-                            >
-                            <button type="submit" class="submit-btn">
-                                Notify Me
-                            </button>
-                        </div>
-                        <p class="form-message" id="formMessage"></p>
-                    </form>
+                    <!-- HubSpot Form Container (API Method - No Iframe) -->
+                    <div id="hubspot-form-container" class="hs-form-frame"></div>
                 </div>
             </section>
 
@@ -108,6 +94,48 @@
     <!-- JavaScript -->
     <script src="js/animations.js"></script>
     <script src="js/main.js"></script>
+
+    <!-- HubSpot Form API (Non-iframe Method for Custom Styling) -->
+    <script charset="utf-8" type="text/javascript" src="https://js-eu1.hsforms.net/forms/embed/v2.js"></script>
+    <script>
+        // Load HubSpot form using API method (renders in DOM, not iframe)
+        hbspt.forms.create({
+            region: "eu1",
+            portalId: "145610142",
+            formId: "9f4c88f1-82eb-4b43-ae83-225cdd9b4e64",
+            target: "#hubspot-form-container",
+            css: "", // Use external CSS from styles.css
+            cssClass: "hs-form-custom", // Add custom class for targeting
+            onFormSubmitted: function($form) {
+                // Hide heading and description after successful form submission
+                const heading = document.querySelector('.signup-heading');
+                const description = document.querySelector('.signup-description');
+
+                // Add transition for smooth fade-out
+                if (heading) {
+                    heading.style.transition = 'opacity 0.5s ease, margin 0.5s ease';
+                    heading.style.opacity = '0';
+                    heading.style.marginBottom = '0';
+
+                    // Hide completely after animation
+                    setTimeout(function() {
+                        heading.style.display = 'none';
+                    }, 500);
+                }
+
+                if (description) {
+                    description.style.transition = 'opacity 0.5s ease, margin 0.5s ease';
+                    description.style.opacity = '0';
+                    description.style.marginBottom = '0';
+
+                    // Hide completely after animation
+                    setTimeout(function() {
+                        description.style.display = 'none';
+                    }, 500);
+                }
+            }
+        });
+    </script>
 
 </body>
 </html>

@@ -17,8 +17,8 @@
      * Initialize the application
      */
     function init() {
-        // Setup email form
-        setupEmailForm();
+        // Setup email form (disabled - now using HubSpot form)
+        // setupEmailForm();
 
         // Setup smooth scrolling
         setupSmoothScroll();

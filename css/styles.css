@@ -265,6 +265,141 @@ body {
 }
 
 /* ============================================
+   HubSpot Form Custom Styling (API Method - No Iframe)
+   ============================================ */
+
+/* HubSpot form container */
+.hs-form-frame {
+    width: 100%;
+}
+
+/* HubSpot generates these classes when using API method */
+.hs-form {
+    width: 100%;
+}
+
+/* Style HubSpot form inputs - using actual HubSpot classes */
+.hs-form-frame .hs-input,
+.hs-form-frame input[type="email"],
+.hs-form-frame input[type="text"],
+.hs-form-frame textarea {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    font-family: var(--font-primary);
+    background-color: rgba(250, 250, 250, 0.1) !important;
+    border: 2px solid rgba(255, 243, 1, 0.3) !important;
+    border-radius: 8px !important;
+    color: var(--doctor-white) !important;
+    transition: all var(--transition-normal);
+    box-sizing: border-box;
+}
+
+.hs-form-frame .hs-input::placeholder,
+.hs-form-frame input::placeholder,
+.hs-form-frame textarea::placeholder {
+    color: rgba(250, 250, 250, 0.5) !important;
+}
+
+.hs-form-frame .hs-input:focus,
+.hs-form-frame input:focus,
+.hs-form-frame textarea:focus {
+    outline: none !important;
+    border-color: var(--gorse-yellow) !important;
+    background-color: rgba(250, 250, 250, 0.15) !important;
+    box-shadow: 0 0 0 3px rgba(255, 243, 1, 0.1) !important;
+}
+
+/* Style HubSpot submit button - using actual HubSpot classes */
+.hs-form-frame .hs-button,
+.hs-form-frame input[type="submit"],
+.hs-form-frame button[type="submit"] {
+    padding: 1rem 2.5rem !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    font-family: var(--font-primary) !important;
+    background-color: var(--gorse-yellow) !important;
+    color: var(--midnight-black) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    transition: all var(--transition-normal) !important;
+    white-space: nowrap;
+    width: auto !important;
+}
+
+.hs-form-frame .hs-button:hover,
+.hs-form-frame input[type="submit"]:hover,
+.hs-form-frame button[type="submit"]:hover {
+    background-color: var(--turbo) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 243, 1, 0.4) !important;
+}
+
+.hs-form-frame .hs-button:active,
+.hs-form-frame input[type="submit"]:active,
+.hs-form-frame button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Style HubSpot form labels */
+.hs-form-frame label,
+.hs-form-frame .hs-form-field > label {
+    color: #fafafa !important; /* Bright readable white */
+    font-family: var(--font-primary) !important;
+    font-size: 0.875rem !important;
+    margin-bottom: 0.5rem !important;
+    display: block;
+}
+
+/* Style consent/privacy text and checkboxes */
+.hs-form-frame .hs-form-booleancheckbox label,
+.hs-form-frame .hs-form-booleancheckbox-display span,
+.hs-form-frame .legal-consent-container p,
+.hs-form-frame .legal-consent-container label,
+.hs-form-frame .hs-richtext p {
+    color: #f4c927 !important; /* Turbo yellow for consent text */
+    font-size: 0.75rem !important;
+    line-height: 1.5 !important;
+}
+
+/* Privacy policy links */
+.hs-form-frame .legal-consent-container a,
+.hs-form-frame .hs-richtext a {
+    color: #f4c927 !important;
+    text-decoration: underline !important;
+}
+
+/* Style HubSpot form error messages */
+.hs-form-frame .hs-error-msg,
+.hs-form-frame .hs-error-msgs {
+    color: #ff6b6b !important;
+    font-size: 0.875rem !important;
+    margin-top: 0.5rem !important;
+}
+
+/* Style HubSpot form success message */
+.hs-form-frame .submitted-message,
+.hs-form-frame .hs-form-success-message {
+    color: var(--gorse-yellow) !important;
+    font-size: 1rem !important;
+    text-align: center !important;
+    padding: 1rem !important;
+}
+
+/* Style HubSpot form fields container */
+.hs-form-frame .hs-form-field {
+    margin-bottom: var(--spacing-sm) !important;
+}
+
+/* Additional text elements that need readable color */
+.hs-form-frame .hs-richtext,
+.hs-form-frame .hs-field-desc,
+.hs-form-frame .hs-form-required {
+    color: #fafafa !important;
+}
+
+/* ============================================
    Social Links
    ============================================ */
 

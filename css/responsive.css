@@ -63,9 +63,18 @@
         font-size: 2rem;
     }
 
-    /* Signup Section */
+    /* Signup Section - Desktop Only Improvements */
     .signup-section {
-        max-width: 700px;
+        max-width: 850px; /* Wider on desktop for better use of screen space */
+    }
+
+    /* Add brand border and background to form container */
+    .signup-container {
+        border: 2px solid rgba(255, 243, 1, 0.4); /* Gorse Yellow brand border */
+        border-radius: 12px;
+        padding: 2.5rem;
+        background: rgba(23, 29, 26, 0.3); /* Subtle Midnight Black background for contrast */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Subtle depth */
     }
 
     .email-input {
@@ -76,6 +85,32 @@
     .submit-btn {
         padding: 1.25rem 3rem;
         font-size: 1.125rem;
+    }
+
+    /* HubSpot Form - Desktop Typography & Readability Improvements */
+    .hs-form-frame .hs-input,
+    .hs-form-frame input[type="email"],
+    .hs-form-frame input[type="text"],
+    .hs-form-frame textarea {
+        padding: 1.25rem 2rem !important;
+        font-size: 1.125rem !important; /* Larger, more readable */
+        font-weight: 500 !important; /* Medium weight for better visibility */
+        border: 2px solid rgba(255, 243, 1, 0.5) !important; /* Stronger yellow border */
+    }
+
+    /* HubSpot Form - Label improvements */
+    .hs-form-frame label,
+    .hs-form-frame .hs-form-field > label {
+        font-size: 1rem !important; /* Larger labels */
+        font-weight: 600 !important; /* Semi-bold for better readability */
+    }
+
+    /* HubSpot Form - Button improvements */
+    .hs-form-frame .hs-button,
+    .hs-form-frame input[type="submit"],
+    .hs-form-frame button[type="submit"] {
+        padding: 1.25rem 3rem !important;
+        font-size: 1.125rem !important;
     }
 
     /* Social Links */
