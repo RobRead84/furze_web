@@ -283,11 +283,11 @@
 
     /* Also reduce negative margins on very small screens */
     .logo-wrapper {
-        margin-top: -60px;
+        margin-top: 0px;
     }
 
     .tagline {
-        margin-top: -80px;
+        margin-top: 0px;
     }
 
     .hero-container {
