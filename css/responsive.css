@@ -221,6 +221,41 @@
 }
 
 /* ============================================
+   Mid-Range Mobile (481px - 767px)
+   Fixes bunching issue on devices around 740px
+   ============================================ */
+
+@media (min-width: 481px) and (max-width: 767px) {
+    /* Reduce F logo size for better proportion */
+    .f-icon {
+        width: 380px;
+        height: 380px;
+    }
+
+    /* Increase gap to prevent bunching */
+    .hero-container {
+        gap: 1.5rem;
+    }
+
+    /* Reduce negative margins to prevent overlap */
+    .logo-wrapper {
+        margin-top: 0px;
+    }
+
+    .tagline {
+        margin-top: -50px;
+    }
+
+    .coming-soon-text {
+        font-size: 2.75rem;
+    }
+
+    .tagline {
+        font-size: 1.125rem;
+    }
+}
+
+/* ============================================
    Small Mobile (max-width: 480px)
    ============================================ */
 
@@ -244,6 +279,19 @@
 
     .signup-description {
         font-size: 0.9375rem;
+    }
+
+    /* Also reduce negative margins on very small screens */
+    .logo-wrapper {
+        margin-top: -60px;
+    }
+
+    .tagline {
+        margin-top: -80px;
+    }
+
+    .hero-container {
+        gap: 1rem;
     }
 }
 
