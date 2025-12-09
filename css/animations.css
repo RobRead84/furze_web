@@ -1,0 +1,195 @@
+/* ============================================
+   Firehills Landing Page - Animations
+   F Logo fade-in and Coming Soon text animations
+   ============================================ */
+
+/* ============================================
+   Keyframe Animations
+   ============================================ */
+
+/* F Logo Fade In Animation */
+@keyframes fadeInLogo {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Coming Soon Text Fade In (Overlay) */
+@keyframes fadeInOverlay {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Fade In from Below (for signup and social sections) */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Subtle Pulse Animation for F Logo (optional, can be removed) */
+@keyframes subtlePulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* ============================================
+   Animation Classes
+   ============================================ */
+
+/* F Logo Animation - Applied by JavaScript after page load */
+.logo-container.animate {
+    animation: fadeInLogo 0.8s ease-in forwards;
+}
+
+/* Coming Soon Text Animation - Applied by JavaScript with delay */
+.coming-soon-container.animate {
+    animation: fadeInOverlay 0.6s ease-out forwards;
+    animation-delay: 2s; /* Starts after F logo completes */
+}
+
+/* Tagline Fade In */
+.tagline {
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-delay: 2.8s; /* Starts after overlay text */
+}
+
+/* Social Links Fade In */
+.social-links {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-delay: 3.0s; /* Starts after tagline */
+}
+
+/* Signup Section Fade In */
+.signup-section {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-delay: 2.4s; /* Slightly after coming soon text */
+}
+
+/* ============================================
+   Hover Animations
+   ============================================ */
+
+/* Submit Button Hover Effect */
+.submit-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.submit-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Social Link Hover Animation */
+.social-link {
+    position: relative;
+}
+
+.social-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--gorse-yellow);
+    transform: scale(0);
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.social-link:hover::after {
+    transform: scale(1);
+}
+
+/* ============================================
+   Loading State Animation (optional)
+   ============================================ */
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading {
+    animation: spin 1s linear infinite;
+}
+
+/* ============================================
+   Responsive Animation Adjustments
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* Faster animations on mobile for better UX */
+    .logo-container.animate {
+        animation-duration: 0.6s;
+    }
+
+    .coming-soon-container.animate {
+        animation-delay: 1.5s;
+    }
+
+    .signup-section {
+        animation-delay: 2s;
+    }
+
+    .social-links {
+        animation-delay: 2.2s;
+    }
+}
+
+/* ============================================
+   Accessibility - Reduced Motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    /* Disable all animations for users who prefer reduced motion */
+    .logo-container.animate,
+    .coming-soon-container.animate,
+    .signup-section,
+    .social-links {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .submit-btn::before,
+    .social-link::after {
+        display: none;
+    }
+}

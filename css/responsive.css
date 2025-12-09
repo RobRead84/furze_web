@@ -1,0 +1,357 @@
+/* ============================================
+   Firehills Landing Page - Responsive Styles
+   Mobile-first approach with breakpoints at 768px, 1024px, 1440px
+   ============================================ */
+
+/* ============================================
+   Base Mobile Styles (375px - 767px)
+   Already defined in main styles.css
+   ============================================ */
+
+/* ============================================
+   Tablet Styles (768px - 1023px)
+   ============================================ */
+
+@media (min-width: 768px) {
+    /* Hero Section - No padding needed with Grid layout */
+
+    .f-icon {
+        width: 900px;
+        height: 900px;
+    }
+
+    /* Coming Soon Text */
+    .coming-soon-text {
+        font-size: 5rem;
+    }
+
+    .tagline {
+        font-size: 1.75rem;
+    }
+
+    /* Signup Section */
+    .signup-heading {
+        font-size: 2rem;
+    }
+
+    .signup-description {
+        font-size: 1.25rem;
+    }
+}
+
+/* ============================================
+   Desktop Styles (1024px - 1439px)
+   ============================================ */
+
+@media (min-width: 1024px) {
+    /* Hero Section */
+    .hero-container {
+        gap: 0.25rem;
+    }
+
+    .f-icon {
+        width: 1000px;
+        height: 1000px;
+    }
+
+    /* Coming Soon Text */
+    .coming-soon-text {
+        font-size: 5.5rem;
+    }
+
+    .tagline {
+        font-size: 2rem;
+    }
+
+    /* Signup Section - Desktop Only Improvements */
+    .signup-section {
+        max-width: 850px; /* Wider on desktop for better use of screen space */
+    }
+
+    /* Add brand border and background to form container */
+    .signup-container {
+        border: 2px solid rgba(255, 243, 1, 0.4); /* Gorse Yellow brand border */
+        border-radius: 12px;
+        padding: 2.5rem;
+        background: rgba(23, 29, 26, 0.3); /* Subtle Midnight Black background for contrast */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Subtle depth */
+    }
+
+    .email-input {
+        padding: 1.25rem 2rem;
+        font-size: 1.125rem;
+    }
+
+    .submit-btn {
+        padding: 1.25rem 3rem;
+        font-size: 1.125rem;
+    }
+
+    /* HubSpot Form - Desktop Typography & Readability Improvements */
+    .hs-form-frame .hs-input,
+    .hs-form-frame input[type="email"],
+    .hs-form-frame input[type="text"],
+    .hs-form-frame textarea {
+        padding: 1.25rem 2rem !important;
+        font-size: 1.125rem !important; /* Larger, more readable */
+        font-weight: 500 !important; /* Medium weight for better visibility */
+        border: 2px solid rgba(255, 243, 1, 0.5) !important; /* Stronger yellow border */
+    }
+
+    /* HubSpot Form - Label improvements */
+    .hs-form-frame label,
+    .hs-form-frame .hs-form-field > label {
+        font-size: 1rem !important; /* Larger labels */
+        font-weight: 600 !important; /* Semi-bold for better readability */
+    }
+
+    /* HubSpot Form - Button improvements */
+    .hs-form-frame .hs-button,
+    .hs-form-frame input[type="submit"],
+    .hs-form-frame button[type="submit"] {
+        padding: 1.25rem 3rem !important;
+        font-size: 1.125rem !important;
+    }
+
+    /* Social Links */
+    .social-link {
+        width: 56px;
+        height: 56px;
+    }
+
+    .social-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* ============================================
+   Large Desktop Styles (1440px+)
+   ============================================ */
+
+@media (min-width: 1440px) {
+    /* Hero Section */
+    .f-icon {
+        width: 1100px;
+        height: 1100px;
+    }
+
+    /* Coming Soon Text */
+    .coming-soon-text {
+        font-size: 6rem;
+    }
+
+    .tagline {
+        font-size: 2.25rem;
+    }
+}
+
+/* ============================================
+   Mobile-Specific Styles (max-width: 767px)
+   ============================================ */
+
+@media (max-width: 767px) {
+    /* Hero Section - No padding needed with Grid layout */
+
+    .hero-container {
+        gap: 0.25rem;
+    }
+
+    .f-icon {
+        width: 560px;
+        height: 560px;
+    }
+
+    /* Coming Soon Text */
+    .coming-soon-text {
+        font-size: 2.5rem;
+    }
+
+    .tagline {
+        font-size: 1.125rem;
+    }
+
+    /* Signup Section */
+    .signup-section {
+        margin-top: var(--spacing-sm);
+    }
+
+    .signup-heading {
+        font-size: 1.5rem;
+    }
+
+    .signup-description {
+        font-size: 1rem;
+    }
+
+    /* Form - Stack on very small screens */
+    .form-group {
+        flex-direction: column;
+    }
+
+    .email-input {
+        padding: 0.875rem 1.25rem;
+        font-size: 0.9375rem;
+    }
+
+    .submit-btn {
+        padding: 0.875rem 2rem;
+        width: 100%;
+    }
+
+    /* Social Links */
+    .social-link {
+        width: 44px;
+        height: 44px;
+    }
+
+    .social-icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: var(--spacing-sm);
+    }
+
+    .copyright {
+        font-size: 0.75rem;
+    }
+}
+
+/* ============================================
+   Mid-Range Mobile (481px - 767px)
+   Fixes bunching issue on devices around 740px
+   ============================================ */
+
+@media (min-width: 481px) and (max-width: 767px) {
+    /* Reduce F logo size for better proportion */
+    .f-icon {
+        width: 380px;
+        height: 380px;
+    }
+
+    /* Increase gap to prevent bunching */
+    .hero-container {
+        gap: 1.5rem;
+    }
+
+    /* Reduce negative margins to prevent overlap */
+    .logo-wrapper {
+        margin-top: 0px;
+    }
+
+    .tagline {
+        margin-top: -50px;
+    }
+
+    .coming-soon-text {
+        font-size: 2.75rem;
+    }
+
+    .tagline {
+        font-size: 1.125rem;
+    }
+}
+
+/* ============================================
+   Small Mobile (max-width: 480px)
+   ============================================ */
+
+@media (max-width: 480px) {
+    .f-icon {
+        width: 220px;
+        height: 220px;
+    }
+
+    .coming-soon-text {
+        font-size: 2.5rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .signup-heading {
+        font-size: 1.25rem;
+    }
+
+    .signup-description {
+        font-size: 0.9375rem;
+    }
+
+    /* Also reduce negative margins on very small screens */
+    .logo-wrapper {
+        margin-top: 25px;
+    }
+
+    .tagline {
+        margin-top: 0px;
+    }
+
+    .hero-container {
+        gap: 1rem;
+    }
+}
+
+/* ============================================
+   Extra Large Screens (1920px+)
+   ============================================ */
+
+@media (min-width: 1920px) {
+    .nav-container,
+    .hero-container,
+    .footer-container {
+        max-width: 1920px;
+    }
+}
+
+/* ============================================
+   Landscape Mobile Orientation
+   ============================================ */
+
+@media (max-width: 767px) and (orientation: landscape) {
+    .hero-section {
+        min-height: auto;
+    }
+
+    .f-icon {
+        width: 200px;
+        height: 200px;
+    }
+
+    .coming-soon-text {
+        font-size: 2.5rem;
+    }
+
+    .hero-container {
+        gap: var(--spacing-sm);
+    }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+
+@media print {
+    .nav-header,
+    .signup-section,
+    .social-links,
+    .footer {
+        display: none;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .coming-soon-text {
+        color: black;
+    }
+
+    .tagline {
+        color: #171d1a;
+    }
+}

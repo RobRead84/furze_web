@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Furze from Firehills - Revolutionary AI-Powered Business Intelligence. Coming Soon.">
+    <meta name="keywords" content="Firehills, Furze, Business Intelligence, AI, Analytics">
+    <meta name="author" content="Firehills Consulting">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Furze from Firehills - Coming Soon">
+    <meta property="og:description" content="Revolutionary AI-Powered Business Intelligence">
+    <meta property="og:image" content="./assets/logos/firehills-f-icon.svg">
+
+    <title>Furze from Firehills - Coming Soon</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./assets/logos/firehills-f-icon.svg">
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <main class="hero-section">
+        <div class="hero-container">
+
+            <!-- Logo with Overlaid Text -->
+            <div class="logo-wrapper">
+                <!-- Animated F Logo -->
+                <div class="logo-container" id="f-logo">
+                    <svg class="f-icon" width="400" height="400" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g transform="translate(100, 100) rotate(45) translate(-50, -50)">
+                            <path d="M 15 15 L 85 15 L 85 35 L 45 35 L 45 45 L 75 45 L 75 65 L 45 65 L 45 85 L 15 85 Z"
+                                  fill="#fff301"
+                                  stroke="none"/>
+                        </g>
+                    </svg>
+                </div>
+
+                <!-- Overlaid Text (appears after logo animation) -->
+                <div class="coming-soon-container" id="coming-soon">
+                    <h1 class="coming-soon-text">Furze from Firehills</h1>
+                </div>
+            </div>
+
+            <!-- Tagline (below the F logo) -->
+            <p class="tagline" id="tagline-placeholder">Furze unlocks growth and impact by bringing a fresh perspective</p>
+
+            <!-- Email Signup Section -->
+            <section class="signup-section" id="signup">
+                <div class="signup-container">
+                    <h2 class="signup-heading">Stay Updated</h2>
+                    <p class="signup-description">Be the first to know when we launch</p>
+
+                    <!-- HubSpot Form Container (Embed v3 Method) -->
+                    <div class="hs-form-frame" data-region="eu1" data-form-id="9f4c88f1-82eb-4b43-ae83-225cdd9b4e64" data-portal-id="145610142"></div>
+                </div>
+            </section>
+
+            <!-- Social Media Links -->
+            <div class="social-links">
+                <a href="https://www.linkedin.com/company/firehills-consulting/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="social-link"
+                   aria-label="LinkedIn">
+                    <svg class="social-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/>
+                    </svg>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <p class="copyright">&copy; 2025 Firehills. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- JavaScript -->
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- HubSpot Form Embed v3 (Portal-specific Script) -->
+    <script src="https://js-eu1.hsforms.net/forms/embed/145610142.js" defer></script>
+    <script>
+        // Custom callback for form submission using postMessage API
+        window.addEventListener('message', function(event) {
+            if(event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormSubmitted') {
+                // Hide heading and description after successful form submission
+                const heading = document.querySelector('.signup-heading');
+                const description = document.querySelector('.signup-description');
+
+                // Add transition for smooth fade-out
+                if (heading) {
+                    heading.style.transition = 'opacity 0.5s ease, margin 0.5s ease';
+                    heading.style.opacity = '0';
+                    heading.style.marginBottom = '0';
+
+                    // Hide completely after animation
+                    setTimeout(function() {
+                        heading.style.display = 'none';
+                    }, 500);
+                }
+
+                if (description) {
+                    description.style.transition = 'opacity 0.5s ease, margin 0.5s ease';
+                    description.style.opacity = '0';
+                    description.style.marginBottom = '0';
+
+                    // Hide completely after animation
+                    setTimeout(function() {
+                        description.style.display = 'none';
+                    }, 500);
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
