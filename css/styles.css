@@ -54,7 +54,7 @@ body {
     background-color: var(--midnight-black);
     color: var(--doctor-white);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: clip;
     min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -482,3 +482,4 @@ body {
 .skip-link:focus {
     top: 0;
 }
+
