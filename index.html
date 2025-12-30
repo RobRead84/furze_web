@@ -58,11 +58,14 @@
 
             <!-- Email Signup Section -->
             <section class="signup-section" id="signup">
-                <div class="signup-container">
+                <!-- Heading and description - separate from form -->
+                <div class="signup-text-container">
                     <h2 class="signup-heading">Stay Updated</h2>
                     <p class="signup-description">Be the first to know when we launch</p>
+                </div>
 
-                    <!-- HubSpot Form Container (Embed v3 Method) -->
+                <!-- Form container - data-attribute embed (bypasses domain restrictions) -->
+                <div class="signup-container">
                     <div class="hs-form-frame" data-region="eu1" data-form-id="9f4c88f1-82eb-4b43-ae83-225cdd9b4e64" data-portal-id="145610142"></div>
                 </div>
             </section>
@@ -95,38 +98,124 @@
     <script src="js/animations.js"></script>
     <script src="js/main.js"></script>
 
-    <!-- HubSpot Form Embed v3 (Portal-specific Script) -->
-    <script src="https://js-eu1.hsforms.net/forms/embed/145610142.js" defer></script>
+    <!-- HubSpot Form Embed Script -->
+    <script charset="utf-8" type="text/javascript" src="https://js-eu1.hsforms.net/forms/embed/v2.js"></script>
+
     <script>
-        // Custom callback for form submission using postMessage API
+        // ========================================================
+        // Form Submission Handler - Modern HubSpot Events (2025)
+        // Uses new 'hs-form-event:on-submission:success' event
+        // ========================================================
+
+        let formSubmitted = false;
+
+        console.log('🔧 HubSpot Form Script Initialized');
+        console.log('📋 Using data-attribute embed with modern event listeners');
+
+        /**
+         * Hide "Stay Updated" heading and description after form submission
+         */
+        function hideSignupText() {
+            console.log('📞 hideSignupText() called');
+
+            if (formSubmitted) {
+                console.log('⚠️ Form already submitted, skipping hide');
+                return;
+            }
+            formSubmitted = true;
+
+            const heading = document.querySelector('.signup-heading');
+            const description = document.querySelector('.signup-description');
+
+            console.log('🔍 Found heading:', heading);
+            console.log('🔍 Found description:', description);
+
+            if (heading) {
+                heading.style.transition = 'opacity 0.5s ease, margin 0.5s ease';
+                heading.style.opacity = '0';
+                heading.style.marginBottom = '0';
+                setTimeout(() => {
+                    heading.style.display = 'none';
+                    console.log('✅ Heading hidden');
+                }, 500);
+            }
+
+            if (description) {
+                description.style.transition = 'opacity 0.5s ease, margin 0.5s ease';
+                description.style.opacity = '0';
+                description.style.marginBottom = '0';
+                setTimeout(() => {
+                    description.style.display = 'none';
+                    console.log('✅ Description hidden');
+                }, 500);
+            }
+        }
+
+        // ========================================================
+        // Primary Detection: Modern HubSpot Event (New Form Editor)
+        // ========================================================
+
+        console.log('📡 Setting up modern HubSpot event listener (hs-form-event:on-submission:success)...');
+
+        window.addEventListener('hs-form-event:on-submission:success', function(event) {
+            console.log('✅ Modern HubSpot Event: Form submission success!');
+            console.log('   Event details:', event.detail);
+            hideSignupText();
+        });
+
+        // ========================================================
+        // Fallback Detection 1: Legacy PostMessage (Old Forms)
+        // ========================================================
+
+        console.log('📡 Setting up legacy PostMessage listener...');
+
         window.addEventListener('message', function(event) {
-            if(event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormSubmitted') {
-                // Hide heading and description after successful form submission
-                const heading = document.querySelector('.signup-heading');
-                const description = document.querySelector('.signup-description');
+            if (event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormSubmitted') {
+                console.log('✅ Legacy PostMessage: Form submission detected!');
+                console.log('   Event data:', event.data);
+                hideSignupText();
+            }
+        });
 
-                // Add transition for smooth fade-out
-                if (heading) {
-                    heading.style.transition = 'opacity 0.5s ease, margin 0.5s ease';
-                    heading.style.opacity = '0';
-                    heading.style.marginBottom = '0';
+        // ========================================================
+        // Fallback Detection 2: DOM Mutation Observer
+        // ========================================================
 
-                    // Hide completely after animation
-                    setTimeout(function() {
-                        heading.style.display = 'none';
-                    }, 500);
+        console.log('👀 Starting MutationObserver as final fallback...');
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('✅ DOMContentLoaded - Setting up observer');
+
+            const observer = new MutationObserver(function(mutations) {
+                console.log('🔄 MutationObserver detected changes:', mutations.length, 'mutations');
+
+                // Look for success message with multiple possible selectors
+                const successMessage = document.querySelector(
+                    '.hs-form-frame .submitted-message, ' +
+                    '.hs-form-frame .hs-form-success-message, ' +
+                    '.submitted-message, ' +
+                    '[data-form-success="true"]'
+                );
+
+                console.log('🔍 Looking for success message...', successMessage);
+
+                if (successMessage && successMessage.offsetParent !== null) {
+                    console.log('✅ MutationObserver: Success message detected!');
+                    hideSignupText();
+                    observer.disconnect();
                 }
+            });
 
-                if (description) {
-                    description.style.transition = 'opacity 0.5s ease, margin 0.5s ease';
-                    description.style.opacity = '0';
-                    description.style.marginBottom = '0';
-
-                    // Hide completely after animation
-                    setTimeout(function() {
-                        description.style.display = 'none';
-                    }, 500);
-                }
+            const formContainer = document.querySelector('.hs-form-frame');
+            if (formContainer) {
+                console.log('✅ Found .hs-form-frame, starting observation');
+                observer.observe(formContainer, {
+                    childList: true,
+                    subtree: true,
+                    attributes: true
+                });
+            } else {
+                console.log('⚠️ .hs-form-frame not found');
             }
         });
     </script>

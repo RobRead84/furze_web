@@ -218,6 +218,59 @@
     .copyright {
         font-size: 0.75rem;
     }
+
+    /* ============================================
+       reCAPTCHA Mobile Fix
+       Ensures reCAPTCHA displays properly on mobile
+       Note: HubSpot uses invisible reCAPTCHA - checkbox only appears for suspicious traffic
+       ============================================ */
+
+    /* HubSpot reCAPTCHA container - ensure proper height handling */
+    .hs-recaptcha,
+    .hs-recaptcha .input {
+        height: auto !important;
+        min-height: 78px !important;
+        overflow: visible !important;
+    }
+
+    /* Base reCAPTCHA anchor (checkbox) - compact version for mobile */
+    .hs-recaptcha > div,
+    iframe[src*="recaptcha/enterprise/anchor"],
+    iframe[src*="recaptcha/api2/anchor"],
+    iframe[title="reCAPTCHA"] {
+        transform: scale(0.85) !important;
+        transform-origin: 0 0 !important;
+        max-width: 100% !important;
+        position: relative !important;
+        z-index: 1 !important;
+    }
+
+    /* Ensure all form elements maintain interactivity */
+    .hs-form-frame,
+    .hs-form-frame *,
+    .hs-form-frame .hs-input,
+    .hs-form-frame input,
+    .hs-form-frame textarea,
+    .hs-form-frame select,
+    .hs-form-frame button,
+    .hs-form-frame .hs-button {
+        pointer-events: auto !important;
+        touch-action: auto !important;
+        -webkit-user-select: auto !important;
+        user-select: auto !important;
+    }
+
+    /* Ensure HubSpot form iframe is responsive */
+    iframe.hs-form-iframe {
+        max-height: 100% !important;
+        width: 100% !important;
+    }
+
+    /* Prevent any overlays from blocking form interaction */
+    .hs-form-frame {
+        position: relative !important;
+        z-index: 1 !important;
+    }
 }
 
 /* ============================================
